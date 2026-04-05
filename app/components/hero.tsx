@@ -22,11 +22,12 @@ const Hero = () => {
               <Typewriter
                 options={{
                   strings: [
-                    "Frontend Developer",
-                    "Python Developer",
+                    "Frontend Engineer",
+                    "React & Next.js Specialist",
+                    "Performance Optimizer",
                     "Agentic AI Developer",
-                    "Intelligent System Creator",
-                    "Automation Enthusiast",
+                    "Robotics Enthusiast",
+                    "Innovation Builder",
                   ],
                   autoStart: true,
                   loop: true,
@@ -38,9 +39,10 @@ const Hero = () => {
           </h1>
 
           <p className="text-cd-neutral max-w-lg text-sm sm:text-base leading-relaxed">
-            I build modern, responsive interfaces using Next.js and React and
-            combine them with Python-powered automation and Agentic AI to
-            deliver practical, scalable solutions.
+            Frontend Engineer specializing in React & Next.js, building scalable and
+            high-performance web applications. Experienced in modern architecture,
+            performance optimization, and integrating Agentic AI & robotics concepts
+            to develop intelligent, autonomous solutions.
           </p>
 
           <div className="flex justify-center md:justify-start space-x-4">

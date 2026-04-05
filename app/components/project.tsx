@@ -7,24 +7,24 @@ const Project = () => {
   const projects = [
     {
       id: 1,
-      title: "Personal Portfolio",
+      title: "Physical AI Humanoid Robotics Textbook",
       img: "/assets/work-1.png",
-      desc: "A fully responsive portfolio showcasing my skills, built with Next.js, Tailwind CSS, and Framer Motion animations.",
-      link: "#",
+      desc: "An interactive educational platform exploring humanoid robotics, AI integration, and physical computing concepts with comprehensive learning materials.",
+      link: "https://physicalairumanoidroboticstextbook.vercel.app/",
     },
     {
       id: 2,
-      title: "AI Automation Dashboard",
+      title: "Smart Todo Manager",
       img: "/assets/work-2.png",
-      desc: "An interactive dashboard integrating Python-based AI agents and OpenAI APIs for task automation and analytics.",
-      link: "#",
+      desc: "A modern task management application with intelligent features, built with Next.js for efficient productivity and seamless user experience.",
+      link: "https://phase4-smart-todo-manager.vercel.app/",
     },
     {
       id: 3,
-      title: "E-commerce Store",
+      title: "Personal Portfolio",
       img: "/assets/work-3.png",
-      desc: "A modern e-commerce application with product filtering, authentication, and Firebase backend integration.",
-      link: "#",
+      desc: "A fully responsive portfolio showcasing my skills, built with Next.js, Tailwind CSS, and Framer Motion animations.",
+      link: "https://github.com/umemasultan/Personol_Portfolio",
     },
   ];
 

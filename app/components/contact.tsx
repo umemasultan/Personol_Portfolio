@@ -22,7 +22,7 @@ const Contact = () => {
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
               <a className="text-cd-cyan leading-relaxed">umemasultan11@gmail.com</a>
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-              <p className="leading-relaxed">+92 31077627913</p>
+              <p className="leading-relaxed">+92 3107627913</p>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@ const Contact = () => {
             Contact Me
           </h1>
 
-          <p className="leading-relaxed mb-5 text-gray-600">I'd love to hear from you — send me a message!</p>
+          <p className="leading-relaxed mb-5 text-gray-600">Let's discuss your project requirements and explore how we can work together.</p>
           <form>
             <div className="relative mb-4">
               <label htmlFor="name" className="leading-7 text-sm text-gray-600">Name</label>

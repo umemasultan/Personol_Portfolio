@@ -4,42 +4,41 @@ import { SiNextdotjs, SiOpenai, SiTailwindcss, SiGit } from "react-icons/si";
 
 const skills = [
   {
-    name: "HTML",
-    level: "100%",
-    description: "Strong understanding of semantic HTML and responsive structures.",
-    icon: <FaHtml5 className="text-[#E44D26] text-2xl" />,
+    name: "React.js / Next.js",
+    level: "95%",
+    description: "Building scalable, high-performance web applications with modern architecture.",
+    icon: <SiNextdotjs className="text-black text-2xl" />,
+  },
+  {
+    name: "JavaScript / TypeScript",
+    level: "90%",
+    description: "Expert in ES6+, type-safe development, and clean code practices.",
+    icon: <FaJsSquare className="text-[#F7DF1E] text-2xl" />,
+  },
+  {
+    name: "Performance Optimization",
+    level: "85%",
+    description: "Optimizing web vitals, bundle size, and rendering strategies for speed.",
+    icon: <FaReact className="text-[#61DAFB] text-2xl" />,
   },
   {
     name: "CSS / Tailwind CSS",
     level: "95%",
-    description: "Expert in modern styling using Tailwind, Flexbox, and Grid.",
-    icon: <FaCss3Alt className="text-[#1572B6] text-2xl" />,
-  },
-  {
-    name: "JavaScript / TypeScript",
-    level: "85%",
-    description: "Hands-on experience with ES6+, DOM manipulation, and API integration.",
-    icon: <FaJsSquare className="text-[#F7DF1E] text-2xl" />,
-  },
-  {
-    name: "React.js / Next.js",
-    level: "90%",
-    description: "Building dynamic and high-performance UIs with reusable components.",
-    icon: <SiNextdotjs className="text-black text-2xl" />,
-  },
-  {
-    name: "Python",
-    level: "80%",
-    description: "Using Python for automation, AI models, and backend scripts.",
-    icon: <FaPython className="text-[#3776AB] text-2xl" />,
+    description: "Expert in modern styling, responsive design, Flexbox, and Grid.",
+    icon: <SiTailwindcss className="text-[#06B6D4] text-2xl" />,
   },
   {
     name: "Agentic AI / OpenAI",
-    level: "70%",
+    level: "80%",
     description: "Creating intelligent and adaptive systems with API-powered automation.",
     icon: <SiOpenai className="text-[#00A67E] text-2xl" />,
   },
- 
+  {
+    name: "Python & Robotics",
+    level: "75%",
+    description: "Integrating robotics concepts and automation for autonomous solutions.",
+    icon: <FaPython className="text-[#3776AB] text-2xl" />,
+  },
 ];
 
 const Skill = () => {
@@ -57,8 +56,8 @@ const Skill = () => {
           </h1>
 
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-600">
-            I’ve developed a solid foundation in both frontend and backend technologies — with
-            a focus on clean design, efficient code, and AI-powered automation.
+            Specialized in modern frontend architecture, performance optimization, and integrating
+            cutting-edge AI & robotics concepts to build future-ready applications.
           </p>
         </div>
 

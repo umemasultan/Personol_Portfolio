@@ -25,19 +25,16 @@ const About = () => {
 
 
           <p className="leading-relaxed text-lg text-gray-700 mb-6 max-w-xl text-justify">
-            I’m <span className="font-semibold text-[#468099]">Umema Sultan</span> — a passionate
-            <span className="font-medium text-[#224757]"> Full-Stack Developer</span> who loves turning ideas into real, functional, and user-friendly digital experiences.
-            I specialize in building responsive websites using
-            <span className="text-[#468099] font-semibold"> Next.js</span>,
-            <span className="text-[#468099] font-semibold"> React</span>, and
-            <span className="text-[#468099] font-semibold"> Tailwind CSS</span>,
-            combined with backend logic in
-            <span className="text-[#468099] font-semibold"> Python</span>.
+            I’m <span className="font-semibold text-[#468099]">Umema Sultan</span> — a
+            <span className="font-medium text-[#224757]"> Frontend Engineer</span> specializing in
+            <span className="text-[#468099] font-semibold"> React & Next.js</span>, building scalable and high-performance web applications.
 
-            My focus is on creating clean, modern UIs and integrating automation with
-            <span className="italic text-[#224757]"> Agentic AI</span> for intelligent, adaptive systems.
-            I enjoy continuous learning, exploring new technologies, and solving real-world problems through creative coding.
-            My goal is to grow into a professional developer capable of building efficient, smart, and scalable digital solutions.
+            I’m experienced in modern architecture, performance optimization, and clean, maintainable code practices.
+            I integrate
+            <span className="italic text-[#224757]"> Agentic AI & robotics</span> concepts to develop intelligent, autonomous solutions.
+
+            I’m passionate about creating future-ready digital products that combine innovation with real-world impact,
+            delivering practical and scalable solutions that push the boundaries of what’s possible.
           </p>
           <a href="/assets/cv.pdf" target="_blank" rel="noopener noreferrer">
             <button

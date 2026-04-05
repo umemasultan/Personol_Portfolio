@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -18,6 +18,12 @@ const Footer = () => {
           </a>
           <a href="https://instagram.com" target="_blank" className="text-white hover:text-[#00BFE8] transition-all">
             <FaInstagram size={18} />
+          </a>
+          <a href="https://www.tiktok.com/messages?lang=en" target="_blank" className="text-white hover:text-[#00BFE8] transition-all">
+            <FaTiktok size={18} />
+          </a>
+          <a href="https://whatsapp.com/channel/0029Vb25yCO7dmeTzYnD7p0M" target="_blank" className="text-white hover:text-[#00BFE8] transition-all">
+            <FaWhatsapp size={18} />
           </a>
         </span>
       </div>
