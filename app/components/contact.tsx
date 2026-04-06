@@ -22,7 +22,7 @@ const Contact = () => {
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
               <a className="text-cd-cyan leading-relaxed">umemasultan11@gmail.com</a>
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-              <p className="leading-relaxed">+92 3107627913</p>
+              <p className="leading-relaxed">+92 3107627910</p>
             </div>
           </div>
         </div>

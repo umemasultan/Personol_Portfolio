@@ -211,7 +211,7 @@ This project is open source and available under the [ISC License](LICENSE).
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Channel-25D366?style=for-the-badge&logo=whatsapp)](https://whatsapp.com/channel/0029Vb25yCO7dmeTzYnD7p0M)
 
 📧 **Email**: [umemasultan11@gmail.com](mailto:umemasultan11@gmail.com)  
-📱 **Phone**: +92 3107627913  
+📱 **Phone**: +92 3107627910  
 📍 **Location**: Orangi Town, Karachi, Pakistan
 
 </div>
