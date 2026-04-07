@@ -1,12 +1,25 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const About = () => {
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+
+  const [particles, setParticles] = useState<Array<{ top: number; left: number; duration: number; delay: number }>>([]);
+
+  useEffect(() => {
+    setParticles(
+      [...Array(6)].map(() => ({
+        top: Math.random() * 100,
+        left: Math.random() * 100,
+        duration: 2 + Math.random() * 2,
+        delay: Math.random() * 2,
+      }))
+    );
+  }, []);
 
   return (
     <section id="about" className="text-gray-700 body-font bg-gradient-to-b from-white to-gray-50 py-20 relative overflow-hidden">
@@ -71,22 +84,22 @@ const About = () => {
             />
 
             {/* Floating particles around image */}
-            {[...Array(6)].map((_, i) => (
+            {particles.map((particle, i) => (
               <motion.div
                 key={i}
                 className="absolute w-2 h-2 bg-cyan-400/40 rounded-full"
                 style={{
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
+                  top: `${particle.top}%`,
+                  left: `${particle.left}%`,
                 }}
                 animate={{
                   y: [0, -20, 0],
                   opacity: [0.2, 0.8, 0.2],
                 }}
                 transition={{
-                  duration: 2 + Math.random() * 2,
+                  duration: particle.duration,
                   repeat: Infinity,
-                  delay: Math.random() * 2,
+                  delay: particle.delay,
                 }}
               />
             ))}
