@@ -3,87 +3,263 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import Typewriter from "typewriter-effect";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Hero = () => {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
   return (
     <section
       id="home"
-      className="relative overflow-hidden text-white bg-gradient-to-r from-[#081B33] via-[#003F7F] to-[#00BFE8] animate-gradient"
+      className="relative overflow-hidden text-white bg-gradient-to-br from-[#0a1628] via-[#1a2f4a] to-[#2a4a6a] min-h-screen"
     >
-      {/* Gradient animation overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,191,232,0.25),transparent_70%)]"></div>
+      {/* Animated background elements with parallax */}
+      <motion.div
+        style={{ y }}
+        className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(70,128,153,0.15),transparent_50%)]"
+      />
+      <motion.div
+        style={{ y: useTransform(scrollY, [0, 500], [0, -100]) }}
+        className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(34,71,87,0.2),transparent_50%)]"
+      />
 
-      <div className="container mx-auto relative z-10 min-h-screen flex items-center px-6 md:px-12">
-        <div className="md:w-1/2 text-center md:text-left space-y-6">
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-            I'm <br />
-            <span className="text-gradient">
-              <Typewriter
-                options={{
-                  strings: [
-                    "Frontend Engineer",
-                    "React & Next.js Specialist",
-                    "Performance Optimizer",
-                    "Agentic AI Developer",
-                    "Robotics Enthusiast",
-                    "Innovation Builder",
-                  ],
-                  autoStart: true,
-                  loop: true,
-                  delay: 60,
-                  deleteSpeed: 30,
+      {/* Floating particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, Math.random() * -500],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+            }}
+          />
+        ))}
+      </div>
+
+      <motion.div
+        style={{ opacity }}
+        className="container mx-auto relative z-10 min-h-screen flex items-center px-6 md:px-12 py-20"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="md:w-1/2 text-center md:text-left space-y-8"
+        >
+          {/* Strong headline with staggered animation */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            <motion.h1
+              className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 1 }}
+            >
+              {["U", "m", "e", "m", "a", " ", "S", "u", "l", "t", "a", "n"].map((char, i) => (
+                <motion.span
+                  key={i}
+                  className="inline-block bg-gradient-to-r from-white via-blue-100 to-cyan-200 text-transparent bg-clip-text"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + i * 0.05, duration: 0.5 }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </motion.h1>
+
+            {/* Professional tagline with animated gradient */}
+            <motion.div
+              className="text-2xl sm:text-3xl font-bold min-h-[80px]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.8 }}
+            >
+              <motion.div
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
-              />
-            </span>
-          </h1>
-
-          <p className="text-cd-neutral max-w-lg text-sm sm:text-base leading-relaxed">
-            Frontend Engineer specializing in React & Next.js, building scalable and
-            high-performance web applications. Experienced in modern architecture,
-            performance optimization, and integrating Agentic AI & robotics concepts
-            to develop intelligent, autonomous solutions.
-          </p>
-
-          <div className="flex justify-center md:justify-start space-x-4">
-            <Link href="#contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                className="bg-cd-cyan hover:bg-white/10 text-cd-navy font-semibold py-3 px-8 rounded-full shadow-lg transition-all"
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                style={{
+                  backgroundSize: "200% 200%",
+                }}
+                className="bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 text-transparent bg-clip-text"
               >
-                Contact Me
+                <Typewriter
+                  options={{
+                    strings: [
+                      "Frontend Developer",
+                      "React & Next.js Expert",
+                      "Building Scalable Applications",
+                      "AI-Powered Solutions",
+                    ],
+                    autoStart: true,
+                    loop: true,
+                    delay: 80,
+                    deleteSpeed: 40,
+                  }}
+                />
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-gray-300 max-w-xl text-base sm:text-lg leading-relaxed"
+          >
+            Engineering <span className="text-cyan-300 font-semibold">enterprise-grade React applications</span> and <span className="text-cyan-300 font-semibold">intelligent AI systems</span> that drive measurable business impact. Transforming complex challenges into elegant, scalable solutions.
+          </motion.p>
+
+          {/* CTA Buttons with advanced hover effects */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="flex flex-wrap justify-center md:justify-start gap-4"
+          >
+            <Link href="#projects">
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 30px rgba(34,211,238,0.6)",
+                }}
+                whileTap={{ scale: 0.98 }}
+                animate={{
+                  boxShadow: [
+                    "0 0 20px rgba(34,211,238,0.3)",
+                    "0 0 30px rgba(34,211,238,0.5)",
+                    "0 0 20px rgba(34,211,238,0.3)",
+                  ],
+                }}
+                transition={{
+                  boxShadow: {
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                }}
+                className="relative bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-4 px-8 rounded-full shadow-xl overflow-hidden group"
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600"
+                  initial={{ x: "100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <span className="relative z-10">View Projects</span>
               </motion.button>
             </Link>
 
-            <a
-              href="/assets/cv.pdf"
-              download
-              className="inline-flex items-center border border-white/30 text-white px-6 py-3 rounded-full hover:bg-white/10"
-            >
-              Download CV
-            </a>
-          </div>
-        </div>
+            <Link href="#contact">
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "rgba(255,255,255,0.15)",
+                  borderColor: "rgba(34,211,238,1)",
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="border-2 border-cyan-400 text-cyan-300 font-bold py-4 px-8 rounded-full hover:bg-white/5 transition-all relative overflow-hidden group"
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileHover={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.4 }}
+                />
+                <span className="relative z-10">Contact Me</span>
+              </motion.button>
+            </Link>
+          </motion.div>
+        </motion.div>
 
-        {/* Hero Image Section */}
-        <div className="md:w-1/2 hidden md:flex justify-center mt-10 md:mt-0">
+        {/* Hero Image Section with 3D effect */}
+        <div className="md:w-1/2 hidden md:flex justify-center items-center mt-10 md:mt-0">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9 }}
-            className="relative"
+            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            whileHover={{
+              scale: 1.05,
+              rotate: 2,
+              transition: { duration: 0.3 }
+            }}
+            className="relative perspective-1000"
           >
-            <div className="absolute inset-0 blur-3xl opacity-40 rounded-full" />
-            <Image
-              src="/assets/main.jpg"
-              alt="Umema"
-              width={380}
-              height={380}
-              className="relative z-10 rounded-full border-4 border-white/30 shadow-2xl object-cover"
+            {/* Animated glow effect */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 blur-3xl rounded-full"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             />
+
+            <motion.div
+              whileHover={{
+                rotateY: 10,
+                rotateX: -10,
+              }}
+              transition={{ duration: 0.3 }}
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              <Image
+                src="/assets/main.jpg"
+                alt="Umema Sultan - Frontend Developer"
+                width={420}
+                height={420}
+                priority
+                className="relative z-10 rounded-full border-4 border-cyan-400/50 shadow-2xl object-cover"
+              />
+            </motion.div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* Animated scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+          className="w-6 h-10 border-2 border-cyan-400/50 rounded-full flex justify-center pt-2"
+        >
+          <motion.div
+            className="w-1 h-2 bg-cyan-400 rounded-full"
+            animate={{ opacity: [1, 0.3, 1] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
