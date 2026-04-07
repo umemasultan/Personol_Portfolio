@@ -11,8 +11,8 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-gradient-to-br from-[#0a1628] via-[#1a2f4a] to-[#0d1b2a] text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.1),transparent_50%)]"></div>
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.08),transparent_50%)]"></div>
 
       <div className="container mx-auto px-6 py-4 relative z-10">
         {/* Main Content */}
@@ -30,7 +30,8 @@ const Footer = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -3 }}
+                whileHover={{ scale: 1.15, y: -3 }}
+                whileTap={{ scale: 0.95 }}
                 className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center hover:bg-cyan-500/20 border border-white/10 hover:border-cyan-400/50 transition-all duration-300"
                 aria-label={social.label}
               >
