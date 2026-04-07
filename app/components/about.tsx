@@ -129,23 +129,21 @@ const About = () => {
             {[
               <>
                 I’m <span className="font-bold text-[#224757]">Umema Sultan</span>, a{" "}
-                <span className="font-semibold text-[#468099]">Frontend Developer</span> specializing in building{" "}
-                <span className="font-semibold">scalable, high-performance web applications</span> with React and Next.js.
+                <span className="font-semibold text-[#468099]">Frontend Developer</span> architecting{" "}
+                <span className="font-semibold">enterprise-scale React applications</span> that power modern digital experiences.
               </>,
               <>
-                With expertise in <span className="font-semibold text-[#224757]">modern architecture</span>,{" "}
-                <span className="font-semibold text-[#224757]">performance optimization</span>, and{" "}
-                <span className="font-semibold text-[#224757]">clean code practices</span>, I create digital experiences
-                that are fast, accessible, and maintainable.
+                Specializing in <span className="font-semibold text-[#224757]">performance-critical systems</span>,{" "}
+                <span className="font-semibold text-[#224757]">scalable architecture</span>, and{" "}
+                <span className="font-semibold text-[#224757]">production-grade code</span>, I transform complex technical challenges into elegant, maintainable solutions that drive measurable business outcomes.
               </>,
               <>
-                I’m passionate about integrating{" "}
-                <span className="font-semibold text-[#468099]">Agentic AI</span> and exploring{" "}
-                <span className="font-semibold text-[#468099]">robotics concepts</span> to build intelligent,
-                autonomous solutions that push the boundaries of web development.
+                Pioneering the integration of{" "}
+                <span className="font-semibold text-[#468099]">Agentic AI systems</span> and{" "}
+                <span className="font-semibold text-[#468099]">autonomous robotics</span> into web platforms, building the next generation of intelligent applications that redefine what’s possible.
               </>,
               <span className="text-gray-600 italic">
-                Let’s create future-ready digital products that combine innovation with real-world impact.
+                Let’s engineer breakthrough digital products that set new industry standards.
               </span>,
             ].map((text, i) => (
               <motion.p
