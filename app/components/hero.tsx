@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useMemo } from "react";
 import Link from "next/link";
 import Typewriter from "typewriter-effect";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -9,6 +9,19 @@ const Hero = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+  // Generate particle positions once on mount to avoid hydration mismatch
+  const particles = useMemo(() =>
+    Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: Math.random() * 10 + 10,
+      delay: Math.random() * 5,
+      yOffset: Math.random() * -500,
+    })),
+    []
+  );
 
   return (
     <section
@@ -27,22 +40,22 @@ const Hero = () => {
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {particles.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: particle.left,
+              top: particle.top,
             }}
             animate={{
-              y: [0, Math.random() * -500],
+              y: [0, particle.yOffset],
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 5,
+              delay: particle.delay,
             }}
           />
         ))}
