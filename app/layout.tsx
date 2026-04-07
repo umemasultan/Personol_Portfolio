@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfolionextjs-swart.vercel.app'),
   title: "Umema Sultan - Frontend Developer | React & Next.js Expert",
   description: "Frontend Developer specializing in scalable React & AI-powered applications. Expert in Next.js, TypeScript, performance optimization, and modern web architecture. Building high-performance digital experiences.",
   keywords: ["Frontend Developer", "React Developer", "Next.js Expert", "TypeScript", "Web Development", "AI Integration", "Performance Optimization", "Umema Sultan"],
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://your-domain.com",
+    url: "https://portfolionextjs-swart.vercel.app",
     title: "Umema Sultan - Frontend Developer | React & Next.js Expert",
     description: "Frontend Developer specializing in scalable React & AI-powered applications. Building high-performance web experiences with modern architecture.",
     siteName: "Umema Sultan Portfolio",
