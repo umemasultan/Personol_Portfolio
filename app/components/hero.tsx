@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Typewriter from "typewriter-effect";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -10,18 +10,21 @@ const Hero = () => {
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  // Generate particle positions once on mount to avoid hydration mismatch
-  const particles = useMemo(() =>
-    Array.from({ length: 20 }, (_, i) => ({
-      id: i,
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      duration: Math.random() * 10 + 10,
-      delay: Math.random() * 5,
-      yOffset: Math.random() * -500,
-    })),
-    []
-  );
+  // Generate particles only on client to avoid hydration mismatch
+  const [particles, setParticles] = useState<any[]>([]);
+
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        duration: Math.random() * 10 + 10,
+        delay: Math.random() * 5,
+        yOffset: Math.random() * -500,
+      }))
+    );
+  }, []);
 
   return (
     <section
@@ -38,28 +41,30 @@ const Hero = () => {
         className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(34,71,87,0.2),transparent_50%)]"
       />
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {particles.map((particle) => (
-          <motion.div
-            key={particle.id}
-            className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
-            style={{
-              left: particle.left,
-              top: particle.top,
-            }}
-            animate={{
-              y: [0, particle.yOffset],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: particle.duration,
-              repeat: Infinity,
-              delay: particle.delay,
-            }}
-          />
-        ))}
-      </div>
+      {/* Floating particles - only render on client */}
+      {particles.length > 0 && (
+        <div className="absolute inset-0 overflow-hidden">
+          {particles.map((particle) => (
+            <motion.div
+              key={particle.id}
+              className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
+              style={{
+                left: particle.left,
+                top: particle.top,
+              }}
+              animate={{
+                y: [0, particle.yOffset],
+                opacity: [0, 1, 0],
+              }}
+              transition={{
+                duration: particle.duration,
+                repeat: Infinity,
+                delay: particle.delay,
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       <motion.div
         style={{ opacity }}
